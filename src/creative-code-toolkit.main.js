@@ -102,7 +102,7 @@ const polute = function () {
 /**
  * Exposed API
  */
-window.modulation = {
+window.ccToolkit = {
   mapRange,
   sinMap,
   cosMap,
