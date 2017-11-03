@@ -120,7 +120,6 @@ exports.cosMap = cosMap;
 exports.wrapValue = wrapValue;
 exports.deepArrayCopy = deepArrayCopy;
 exports.genArray = genArray;
-exports.out = out;
 exports.get1dY = get1dY;
 exports.get1dX = get1dX;
 exports.choose = choose;

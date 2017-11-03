@@ -122,7 +122,6 @@ var polute = function polute() {
   window.wrapValue = wrapValue;
   window.deepArrayCopy = deepArrayCopy;
   window.genArray = genArray;
-  window.out = out;
   window.get1dY = get1dY;
   window.get1dX = get1dX;
   window.choose = choose;
@@ -133,14 +132,13 @@ var polute = function polute() {
 /**
  * Exposed API
  */
-window.modulation = {
+window.ccToolkit = {
   mapRange: mapRange,
   sinMap: sinMap,
   cosMap: cosMap,
   wrapValue: wrapValue,
   deepArrayCopy: deepArrayCopy,
   genArray: genArray,
-  out: out,
   get1dY: get1dY,
   get1dX: get1dX,
   choose: choose,

@@ -91,7 +91,6 @@ const polute = function () {
   window.wrapValue = wrapValue;
   window.deepArrayCopy = deepArrayCopy;
   window.genArray = genArray;
-  window.out = out;
   window.get1dY = get1dY;
   window.get1dX = get1dX;
   window.choose = choose;
@@ -109,7 +108,6 @@ window.ccToolkit = {
   wrapValue,
   deepArrayCopy,
   genArray,
-  out,
   get1dY,
   get1dX,
   choose,
@@ -126,7 +124,6 @@ export { cosMap as cosMap };
 export { wrapValue as wrapValue };
 export { deepArrayCopy as deepArrayCopy };
 export { genArray as genArray };
-export { out as out };
 export { get1dY as get1dY };
 export { get1dX as get1dX };
 export { choose as choose };
