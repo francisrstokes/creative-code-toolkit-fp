@@ -1,44 +1,135 @@
-const mapRange = (val, a, b, c, d) => (val-a)/(b-a) * (d-c) + c;
+/**
+ * Map v in range [a, b] to range [c, d]
+ * @param {Number} v
+ * @param {Number} a
+ * @param {Number} b
+ * @param {Number} c
+ * @param {Number} d
+ */
+const mapRange = (v, a, b, c, d) => (v-a)/(b-a) * (d-c) + c;
 
-const sinMap = (fc, div, a, b) => mapRange(Math.sin(fc/div), -1, 1, a, b);
+/**
+ * Map the output sin(v / div) to the range [a, b]
+ * @param {Number} v
+ * @param {Number} div
+ * @param {Number} a
+ * @param {Number} b
+ */
+const sinMap = (v, div, a, b) => mapRange(Math.sin(v / div), -1, 1, a, b);
 
-const cosMap = (fc, div, a, b) => mapRange(Math.cos(fc/div), -1, 1, a, b);
+/**
+ * Map the output cos(v / div) to the range [a, b]
+ * @param {Number} v
+ * @param {Number} div
+ * @param {Number} a
+ * @param {Number} b
+ */
+const cosMap = (v, div, a, b) => mapRange(Math.cos(v / div), -1, 1, a, b);
 
+/**
+ * if v is greater than M or less than m, wrap the value around to stay in this range
+ * @param {Number} v
+ * @param {Number} m
+ * @param {Number} M
+ */
 const wrapValue = (v, m, M) => m + (v % M);
 
+/**
+ * Return a deep copy array a
+ * @param {Array<any>} a
+ */
 const deepArrayCopy = (a) => a.map(ae => (Array.isArray(ae)) ? deepArrayCopy(ae) : ae);
 
-const genArray = (s, v) => {
-  const out = Array.apply(null, {length: s});
-  return (typeof v !== 'undefined') ? 
-    out.map(x => v) :
-    out;
-}
+/**
+ * Create an array of size s
+ * @param {Number} s
+ */
+const genArray = (s) => Array.apply(null, {length: s});
 
+/**
+ * Get the Y component of a 1d array containing 2d data when the index is i
+ * @param {Number} i
+ * @param {Number} rowLength
+ */
 const get1dY = (i, rowLength) => (i / rowLength)|0;
 
+/**
+ * Get the X component of a 1d array containing 2d data when the index is i
+ * @param {Number} i
+ * @param {Number} rowLength
+ */
 const get1dX = (i, rowLength) => (i % rowLength);
 
+/**
+ * pick a random element from the array a
+ * @param {Array<any>} a 
+ */
 const choose = (a) => a[(Math.random() * a.length)|0];
 
-const rndB = (x = 0, y = 0) => Math.floor(Math.random()*(y-x+1)+x);
+/**
+ * Random number in range [a, b]
+ * @param {Number} a
+ * @param {Number} b
+ */
+const rndB = (a = 0, b = 1) => Math.random() * (b - a + 1) + a;
+
+/**
+ * Random integer in range [a, b]
+ * @param {Number} a
+ * @param {Number} b
+ */
+const rndIntB = (x = 0, y = 1) => (rndB(a, b) + 0.5) >> 0;
 
 /* start window exports */
 /**
  * Polutes the global scope with unnamespaced functions
  */
 const polute = function () {
-  window.setCanvasSize = setCanvasSize;
+  window.mapRange = mapRange;
+  window.sinMap = sinMap;
+  window.cosMap = cosMap;
+  window.wrapValue = wrapValue;
+  window.deepArrayCopy = deepArrayCopy;
+  window.genArray = genArray;
+  window.out = out;
+  window.get1dY = get1dY;
+  window.get1dX = get1dX;
+  window.choose = choose;
+  window.rndB = rndB;
+  window.rndIntB = rndIntB;
 }
 
 /**
  * Exposed API
  */
 window.modulation = {
-  polute,
+  mapRange,
+  sinMap,
+  cosMap,
+  wrapValue,
+  deepArrayCopy,
+  genArray,
+  out,
+  get1dY,
+  get1dX,
+  choose,
+  rndB,
+  rndIntB,
+  polute
 };
 /* end window exports */
 
 /* start exports */
-export { setCanvasSize as setCanvasSize};
+export { mapRange as mapRange };
+export { sinMap as sinMap };
+export { cosMap as cosMap };
+export { wrapValue as wrapValue };
+export { deepArrayCopy as deepArrayCopy };
+export { genArray as genArray };
+export { out as out };
+export { get1dY as get1dY };
+export { get1dX as get1dX };
+export { choose as choose };
+export { rndB as rndB };
+export { rndIntB as rndIntB };
 /* end exports */
