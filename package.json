@@ -1,0 +1,30 @@
+{
+  "name": "creative-code-toolkit",
+  "version": "0.0.1",
+  "description": "Suite of functions for creative coding",
+  "main": "dist/creative-code-toolkit.module.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francisrstokes/creative-code-toolkit.git"
+  },
+  "author": "Francis Stokes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/francisrstokes/creative-code-toolkit/issues"
+  },
+  "homepage": "https://github.com/francisrstokes/creative-code-toolkit#readme",
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-strip-code": "^0.1.4",
+    "mocha": "^3.4.2"
+  }
+}
