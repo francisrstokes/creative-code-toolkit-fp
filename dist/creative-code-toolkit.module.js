@@ -108,8 +108,8 @@ var rndB = function rndB() {
  * @param {Number} b
  */
 var rndIntB = function rndIntB() {
-  var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-  var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
   return rndB(a, b) + 0.5 >> 0;
 };
 

@@ -78,7 +78,7 @@ const rndB = (a = 0, b = 1) => Math.random() * (b - a + 1) + a;
  * @param {Number} a
  * @param {Number} b
  */
-const rndIntB = (x = 0, y = 1) => (rndB(a, b) + 0.5) >> 0;
+const rndIntB = (a = 0, b = 1) => (rndB(a, b) + 0.5) >> 0;
 
 /* start window exports */
 /**
