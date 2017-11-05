@@ -66,24 +66,34 @@ var genArray = function genArray(s) {
 /**
  * Get the Y component of a 1d array containing 2d data when the index is i
  * @param {Number} i
- * @param {Number} rowLength
+ * @param {Number} cols
  */
-var get1dY = function get1dY(i, rowLength) {
-  return i / rowLength | 0;
+var get1dY = function get1dY(i, cols) {
+  return i / cols | 0;
 };
 
 /**
  * Get the X component of a 1d array containing 2d data when the index is i
  * @param {Number} i
- * @param {Number} rowLength
+ * @param {Number} cols
  */
-var get1dX = function get1dX(i, rowLength) {
-  return i % rowLength;
+var get1dX = function get1dX(i, cols) {
+  return i % cols;
+};
+
+/**
+ * Get the index to a 1d Array from coordinates where the number of columns is cols
+ * @param {*} x
+ * @param {*} y
+ * @param {*} cols
+ */
+var get1dIndex = function get1dIndex(x, y, cols) {
+  return y * cols + x;
 };
 
 /**
  * pick a random element from the array a
- * @param {Array<any>} a 
+ * @param {Array<any>} a
  */
 var choose = function choose(a) {
   return a[Math.random() * a.length | 0];
@@ -124,6 +134,7 @@ var polute = function polute() {
   window.genArray = genArray;
   window.get1dY = get1dY;
   window.get1dX = get1dX;
+  window.get1dIndex = get1dIndex;
   window.choose = choose;
   window.rndB = rndB;
   window.rndIntB = rndIntB;
@@ -141,6 +152,7 @@ window.ccToolkit = {
   genArray: genArray,
   get1dY: get1dY,
   get1dX: get1dX,
+  get1dIndex: get1dIndex,
   choose: choose,
   rndB: rndB,
   rndIntB: rndIntB,

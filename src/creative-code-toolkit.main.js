@@ -49,20 +49,28 @@ const genArray = (s) => Array.apply(null, {length: s});
 /**
  * Get the Y component of a 1d array containing 2d data when the index is i
  * @param {Number} i
- * @param {Number} rowLength
+ * @param {Number} cols
  */
-const get1dY = (i, rowLength) => (i / rowLength)|0;
+const get1dY = (i, cols) => (i / cols)|0;
 
 /**
  * Get the X component of a 1d array containing 2d data when the index is i
  * @param {Number} i
- * @param {Number} rowLength
+ * @param {Number} cols
  */
-const get1dX = (i, rowLength) => (i % rowLength);
+const get1dX = (i, cols) => (i % cols);
+
+/**
+ * Get the index to a 1d Array from coordinates where the number of columns is cols
+ * @param {*} x
+ * @param {*} y
+ * @param {*} cols
+ */
+const get1dIndex = (x, y, cols) => (y * cols) + x;
 
 /**
  * pick a random element from the array a
- * @param {Array<any>} a 
+ * @param {Array<any>} a
  */
 const choose = (a) => a[(Math.random() * a.length)|0];
 
@@ -93,6 +101,7 @@ const polute = function () {
   window.genArray = genArray;
   window.get1dY = get1dY;
   window.get1dX = get1dX;
+  window.get1dIndex = get1dIndex;
   window.choose = choose;
   window.rndB = rndB;
   window.rndIntB = rndIntB;
@@ -110,6 +119,7 @@ window.ccToolkit = {
   genArray,
   get1dY,
   get1dX,
+  get1dIndex,
   choose,
   rndB,
   rndIntB,
@@ -126,6 +136,7 @@ export { deepArrayCopy as deepArrayCopy };
 export { genArray as genArray };
 export { get1dY as get1dY };
 export { get1dX as get1dX };
+export { get1dIndex as get1dIndex };
 export { choose as choose };
 export { rndB as rndB };
 export { rndIntB as rndIntB };
