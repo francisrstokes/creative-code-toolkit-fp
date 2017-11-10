@@ -1,6 +1,6 @@
 {
   "name": "creative-code-toolkit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Suite of functions for creative coding",
   "main": "dist/creative-code-toolkit.module.js",
   "scripts": {
