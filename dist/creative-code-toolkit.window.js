@@ -1,6 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 /**
  * Map v in range [a, b] to range [c, d]
  * @param {Number} v
@@ -92,11 +94,32 @@ var get1dIndex = function get1dIndex(x, y, cols) {
 };
 
 /**
+ * Copy of an array without a given element
+ * @param {*} arr
+ * @param {*} item
+ */
+var without = function without(arr, item) {
+  var itemIndex = arr.indexOf(item);
+  var arr2 = [].concat(_toConsumableArray(arr));
+  arr2.splice(itemIndex, 1);
+  return arr2;
+};
+
+/**
  * pick a random element from the array a
  * @param {Array<any>} a
  */
 var choose = function choose(a) {
   return a[Math.random() * a.length | 0];
+};
+
+/**
+ * Pick a random element from an array without a given item
+ * @param {*} arr
+ * @param {*} item
+ */
+var chooseWithout = function chooseWithout(arr, item) {
+  return choose(without(arr, item));
 };
 
 /**
@@ -136,6 +159,8 @@ var polute = function polute() {
   window.get1dX = get1dX;
   window.get1dIndex = get1dIndex;
   window.choose = choose;
+  window.chooseWithout = chooseWithout;
+  window.without = without;
   window.rndB = rndB;
   window.rndIntB = rndIntB;
 };
@@ -154,6 +179,8 @@ window.ccToolkit = {
   get1dX: get1dX,
   get1dIndex: get1dIndex,
   choose: choose,
+  without: without,
+  chooseWithout: chooseWithout,
   rndB: rndB,
   rndIntB: rndIntB,
   polute: polute

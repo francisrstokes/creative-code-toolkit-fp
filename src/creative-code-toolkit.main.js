@@ -69,10 +69,29 @@ const get1dX = (i, cols) => (i % cols);
 const get1dIndex = (x, y, cols) => (y * cols) + x;
 
 /**
+ * Copy of an array without a given element
+ * @param {*} arr
+ * @param {*} item
+ */
+const without = (arr, item) => {
+  const itemIndex = arr.indexOf(item);
+  const arr2 = [...arr];
+  arr2.splice(itemIndex, 1);
+  return arr2;
+}
+
+/**
  * pick a random element from the array a
  * @param {Array<any>} a
  */
 const choose = (a) => a[(Math.random() * a.length)|0];
+
+/**
+ * Pick a random element from an array without a given item
+ * @param {*} arr
+ * @param {*} item
+ */
+const chooseWithout = (arr, item) => choose(without(arr, item));
 
 /**
  * Random number in range [a, b]
@@ -103,6 +122,8 @@ const polute = function () {
   window.get1dX = get1dX;
   window.get1dIndex = get1dIndex;
   window.choose = choose;
+  window.chooseWithout = chooseWithout;
+  window.without = without;
   window.rndB = rndB;
   window.rndIntB = rndIntB;
 }
@@ -121,6 +142,8 @@ window.ccToolkit = {
   get1dX,
   get1dIndex,
   choose,
+  without,
+  chooseWithout,
   rndB,
   rndIntB,
   polute
@@ -137,7 +160,9 @@ export { genArray as genArray };
 export { get1dY as get1dY };
 export { get1dX as get1dX };
 export { get1dIndex as get1dIndex };
+export { without as without };
 export { choose as choose };
+export { chooseWithout as chooseWithout };
 export { rndB as rndB };
 export { rndIntB as rndIntB };
 /* end exports */

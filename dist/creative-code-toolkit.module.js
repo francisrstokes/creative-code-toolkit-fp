@@ -3,6 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 /**
  * Map v in range [a, b] to range [c, d]
  * @param {Number} v
@@ -94,11 +97,32 @@ var get1dIndex = function get1dIndex(x, y, cols) {
 };
 
 /**
+ * Copy of an array without a given element
+ * @param {*} arr
+ * @param {*} item
+ */
+var without = function without(arr, item) {
+  var itemIndex = arr.indexOf(item);
+  var arr2 = [].concat(_toConsumableArray(arr));
+  arr2.splice(itemIndex, 1);
+  return arr2;
+};
+
+/**
  * pick a random element from the array a
  * @param {Array<any>} a
  */
 var choose = function choose(a) {
   return a[Math.random() * a.length | 0];
+};
+
+/**
+ * Pick a random element from an array without a given item
+ * @param {*} arr
+ * @param {*} item
+ */
+var chooseWithout = function chooseWithout(arr, item) {
+  return choose(without(arr, item));
 };
 
 /**
@@ -133,7 +157,9 @@ exports.genArray = genArray;
 exports.get1dY = get1dY;
 exports.get1dX = get1dX;
 exports.get1dIndex = get1dIndex;
+exports.without = without;
 exports.choose = choose;
+exports.chooseWithout = chooseWithout;
 exports.rndB = rndB;
 exports.rndIntB = rndIntB;
 /* end exports */
