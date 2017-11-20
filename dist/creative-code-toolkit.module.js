@@ -103,6 +103,7 @@ var get1dIndex = function get1dIndex(x, y, cols) {
  */
 var without = function without(arr, item) {
   var itemIndex = arr.indexOf(item);
+  if (itemIndex === -1) return [].concat(_toConsumableArray(arr));
   var arr2 = [].concat(_toConsumableArray(arr));
   arr2.splice(itemIndex, 1);
   return arr2;

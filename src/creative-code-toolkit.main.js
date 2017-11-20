@@ -75,6 +75,7 @@ const get1dIndex = (x, y, cols) => (y * cols) + x;
  */
 const without = (arr, item) => {
   const itemIndex = arr.indexOf(item);
+  if (itemIndex === -1) return [...arr];
   const arr2 = [...arr];
   arr2.splice(itemIndex, 1);
   return arr2;
