@@ -1,6 +1,6 @@
 {
-  "name": "creative-code-toolkit",
-  "version": "0.3.1",
+  "name": "cc-toolkit-fp",
+  "version": "1.0.0",
   "description": "Suite of functions for creative coding",
   "main": "dist/creative-code-toolkit.module.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/francisrstokes/creative-code-toolkit.git"
+    "url": "git+https://github.com/francisrstokes/creative-code-toolkit-fp.git"
   },
   "author": "Francis Stokes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/francisrstokes/creative-code-toolkit/issues"
+    "url": "https://github.com/francisrstokes/creative-code-toolkit-fp/issues"
   },
-  "homepage": "https://github.com/francisrstokes/creative-code-toolkit#readme",
+  "homepage": "https://github.com/francisrstokes/creative-code-toolkit-fp#readme",
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
