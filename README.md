@@ -1,123 +1,53 @@
-# Creative Code Toolkit
+# Creative Code Toolkit (FP)
 
 This library is my personal collection of helper functions in creative coding, revolving around modulation, array functions, random numbers, etc.
 
 ## Functions
 
-## mapRange(v, a, b, c, d)
-Map v in range [a, b] to range [c, d]
+## mapRange :: Vector  -> Vector    -> Number -> Number
+`mapRange :: toRange -> tromRange -> value  -> Number`
+Map v in `fromRange` to `fromRange`
 
+## sinMap :: Vector -> Number -> Number
+`sinMap :: toRange -> Divisor -> Number`
+Map the output sin(v / div) to `toRange`
 
-| Param | Type |
-| --- | --- |
-| v | <code>Number</code> |
-| a | <code>Number</code> |
-| b | <code>Number</code> |
-| c | <code>Number</code> |
-| d | <code>Number</code> |
+## cosMap :: Vector -> Number -> Number
+`cosMap :: toRange -> Divisor -> Number`
+Map the output cos(v / div) to `toRange`
 
-
-## sinMap(v, div, a, b)
-Map the output sin(v / div) to the range [a, b]
-
-
-| Param | Type |
-| --- | --- |
-| v | <code>Number</code> |
-| div | <code>Number</code> |
-| a | <code>Number</code> |
-| b | <code>Number</code> |
-
-
-## cosMap(v, div, a, b)
-Map the output cos(v / div) to the range [a, b]
-
-
-| Param | Type |
-| --- | --- |
-| v | <code>Number</code> |
-| div | <code>Number</code> |
-| a | <code>Number</code> |
-| b | <code>Number</code> |
-
-
-## wrapValue(v, m, M)
+## wrapValue :: Number -> Number -> Number -> Number
 if v is greater than M or less than m, wrap the value around to stay in this range
 
-
-| Param | Type |
-| --- | --- |
-| v | <code>Number</code> |
-| m | <code>Number</code> |
-| M | <code>Number</code> |
-
-
-## deepArrayCopy(a)
+## deepArrayCopy :: [a] -> [a]
 Return a deep copy array a
 
-
-| Param | Type |
-| --- | --- |
-| a | <code>Array.&lt;any&gt;</code> |
-
-
-## genArray(s)
+## genArray :: Number -> []
 Create an array of size s
 
-
-| Param | Type |
-| --- | --- |
-| s | <code>Number</code> |
-
-
-## get1dY(i, rowLength)
+## get1dY :: Number -> Number -> Number
+`get1dY :: Columns -> Index -> Number`
 Get the Y component of a 1d array containing 2d data when the index is i
 
-
-| Param | Type |
-| --- | --- |
-| i | <code>Number</code> |
-| rowLength | <code>Number</code> |
-
-
-## get1dX(i, rowLength)
+## get1dX :: Number -> Number -> Number
+`get1dX :: Columns -> Index -> Number`
 Get the X component of a 1d array containing 2d data when the index is i
-
-
-| Param | Type |
-| --- | --- |
-| i | <code>Number</code> |
-| rowLength | <code>Number</code> |
-
-
-## choose(a)
+## choose :: [a] -> a
 pick a random element from the array a
 
+## without :: (\*) -> [\*] -> [\*]
+get an array without a specific member
 
-| Param | Type |
-| --- | --- |
-| a | <code>Array.&lt;any&gt;</code> |
+## chooseWithout :: a -> [a] -> [a]
+`compose(choose, without)`
 
+## rndB :: Vector -> Number
+`rndB :: Range -> Number`
+Random number in range
 
-## rndB(a, b)
-Random number in range [a, b]
-
-
-| Param | Type |
-| --- | --- |
-| a | <code>Number</code> |
-| b | <code>Number</code> |
-
-
-## rndIntB(a, b)
-Random integer in range [a, b]
-
-
-| Param | Type |
-| --- | --- |
-| a | <code>Number</code> |
-| b | <code>Number</code> |
-
+## rndIntB :: Vector -> Number
+`rndIntB :: Range -> Number`
+Random integer in range
 
 ## polute()
 Polutes the global scope with unnamespaced functions
