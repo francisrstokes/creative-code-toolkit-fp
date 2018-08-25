@@ -80,6 +80,16 @@ var cosMap = curry(function (_ref7, div, v) {
   return mapRange([a, b], [-1, 1], Math.cos(v / div));
 });
 
+// sMap :: Vector -> Number -> Number
+var sMap = curry(function (R, p, t) {
+  return mapRange(R, [-1, 1], Math.sin(t ** p));
+});
+
+// cMap :: Vector -> Number -> Number
+var cMap = curry(function (R, p, t) {
+  return mapRange(R, [-1, 1], Math.cos(t ** p));
+});
+
 // wrapValue :: Number -> Number -> Number -> Number
 var wrapValue = curry(function (m, M, v) {
   return m + v % M;
@@ -172,6 +182,8 @@ var polute = function polute() {
   window.without = without;
   window.rndB = rndB;
   window.rndIntB = rndIntB;
+  window.sMap = sMap;
+  window.cMap = cMap;
 };
 
 /**
@@ -192,7 +204,9 @@ window.ccToolkit = {
   chooseWithout: chooseWithout,
   rndB: rndB,
   rndIntB: rndIntB,
-  polute: polute
+  polute: polute,
+  sMap: sMap,
+  cMap: cMap
 };
 /* end window exports */
 },{}]},{},[1])

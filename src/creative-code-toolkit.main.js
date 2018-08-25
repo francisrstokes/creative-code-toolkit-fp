@@ -27,6 +27,12 @@ const sinMap = curry(([a, b], div, v) => mapRange([a, b], [-1, 1], Math.sin(v / 
 // cosMap :: Vector -> Number -> Number
 const cosMap = curry(([a, b], div, v) => mapRange([a, b], [-1, 1], Math.cos(v / div)));
 
+// sMap :: Vector -> Number -> Number
+const sMap = curry((R, p, t) => mapRange(R, [-1, 1], Math.sin(t**p)));
+
+// cMap :: Vector -> Number -> Number
+const cMap = curry((R, p, t) => mapRange(R, [-1, 1], Math.cos(t**p)));
+
 // wrapValue :: Number -> Number -> Number -> Number
 const wrapValue = curry((m, M, v) => m + (v % M));
 
@@ -85,6 +91,8 @@ const polute = function () {
   window.without = without;
   window.rndB = rndB;
   window.rndIntB = rndIntB;
+  window.sMap = sMap;
+  window.cMap = cMap;
 }
 
 /**
@@ -105,7 +113,9 @@ window.ccToolkit = {
   chooseWithout,
   rndB,
   rndIntB,
-  polute
+  polute,
+  sMap,
+  cMap
 };
 /* end window exports */
 
@@ -124,4 +134,6 @@ export { choose as choose };
 export { chooseWithout as chooseWithout };
 export { rndB as rndB };
 export { rndIntB as rndIntB };
+export { sMap as sMap };
+export { cMap as cMap };
 /* end exports */

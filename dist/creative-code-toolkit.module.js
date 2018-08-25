@@ -83,6 +83,16 @@ var cosMap = curry(function (_ref7, div, v) {
   return mapRange([a, b], [-1, 1], Math.cos(v / div));
 });
 
+// sMap :: Vector -> Number -> Number
+var sMap = curry(function (R, p, t) {
+  return mapRange(R, [-1, 1], Math.sin(t ** p));
+});
+
+// cMap :: Vector -> Number -> Number
+var cMap = curry(function (R, p, t) {
+  return mapRange(R, [-1, 1], Math.cos(t ** p));
+});
+
 // wrapValue :: Number -> Number -> Number -> Number
 var wrapValue = curry(function (m, M, v) {
   return m + v % M;
@@ -171,4 +181,6 @@ exports.choose = choose;
 exports.chooseWithout = chooseWithout;
 exports.rndB = rndB;
 exports.rndIntB = rndIntB;
+exports.sMap = sMap;
+exports.cMap = cMap;
 /* end exports */
