@@ -34,7 +34,17 @@ const sMap = curry((R, p, t) => mapRange(R, [-1, 1], Math.sin(t**p)));
 const cMap = curry((R, p, t) => mapRange(R, [-1, 1], Math.cos(t**p)));
 
 // wrapValue :: Number -> Number -> Number -> Number
-const wrapValue = curry((m, M, v) => m + (v % M));
+const wrapValue = curry((m, M, v) => {
+  if (v < m) {
+    const diff = m - v - 1;
+    return wrapValue(m, M, M - diff);
+  }
+  if (v > M) {
+    const diff = v - M - 1;
+    return wrapValue(m, M, m + diff);
+  }
+  return v;
+});
 
 // deepArrayCopy :: [a] -> [a]
 const deepArrayCopy = (a) => a.map(ae => (Array.isArray(ae)) ? deepArrayCopy(ae) : ae);

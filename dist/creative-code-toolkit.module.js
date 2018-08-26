@@ -95,7 +95,15 @@ var cMap = curry(function (R, p, t) {
 
 // wrapValue :: Number -> Number -> Number -> Number
 var wrapValue = curry(function (m, M, v) {
-  return m + v % M;
+  if (v < m) {
+    var diff = m - v - 1;
+    return wrapValue(m, M, M - diff);
+  }
+  if (v > M) {
+    var _diff = v - M - 1;
+    return wrapValue(m, M, m + _diff);
+  }
+  return v;
 });
 
 // deepArrayCopy :: [a] -> [a]
